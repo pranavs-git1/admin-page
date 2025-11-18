@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Chosen Palette: Modern Teal & Amber -->
+    <!-- Application Structure Plan: The 'Source Report' (README.md) explicitly outlines the required components for a marketing landing page. The designed SPA structure directly implements this as a top-to-bottom narrative flow, which is the most user-friendly and conventional structure for this purpose. The flow is: Hero (Immediate Value Prop) -> About (Trust Building) -> Projects (Proof of Work) -> Clients (Social Proof) -> Contact (Conversion) -> Footer (Navigation/Subscription). This logical flow guides the user from interest to conversion, fulfilling all requirements of the source document. -->
+    <!-- Visualization & Content Choices: The Source Report's requirements are for content presentation, not data visualization. Therefore, Chart.js/Plotly are not used. Instead, content is presented using interactive, responsive grid layouts. Report Info (Projects) -> Goal (Showcase work) -> Viz/Method (Responsive 3-column card grid) -> Interaction (Hover states, 'Read More' button) -> Justification (Visually scannable proof of work as requested). Report Info (Clients) -> Goal (Build social proof) -> Viz/Method (Responsive 5-column testimonial card grid) -> Interaction (None, static display) -> Justification (Presents testimonials clearly as requested). Report Info (Contact Form/Newsletter) -> Goal (Lead capture) -> Viz/Method (Standard HTML forms) -> Interaction (Form submission) -> Justification (Fulfills backend data capture requirement). -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <title>FLIPR - Full Stack Task</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(15, 77, 75, 0.9), rgba(13, 110, 108, 0.8)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .form-card {
+            background-color: #115e59; /* Teal-800 */
+        }
+        .form-card input {
+            background-color: #ffffff;
+            color: #333;
+        }
+        .form-card input::placeholder {
+            color: #999;
+        }
+        .social-icon {
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            font-style: italic;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .social-icon-in {
+            font-weight: bold;
+            font-style: normal;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <header class="relative shadow-md">
+        <nav class="bg-white py-4">
+            <div class="container mx-auto px-6 flex justify-between items-center">
+                <div class="text-2xl font-bold text-teal-700">
+                    <a href="#" class="flex items-center space-x-2">
+                        <span class="font-bold text-2xl text-gray-800">Logo</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-teal-700">About Us</a>
+                    <a href="#projects" class="text-gray-600 hover:text-teal-700">Our Projects</a>
+                    <a href="#clients" class="text-gray-600 hover:text-teal-700">Happy Clients</a>
+                    <a href="#contact" class="text-gray-600 hover:text-teal-700">Contact</a>
+                </div>
+                <button class="md:hidden text-gray-700 text-3xl">
+                    &#9776;
+                </button>
+            </div>
+        </nav>
+
+        <div class="hero-gradient text-white py-24 md:py-32 text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Consultation, Design<br>& Marketing</h1>
+                <p class="text-lg md:text-2xl font-light text-teal-100">Not Your Average Realtor</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-teal-600 font-semibold">Why Choose Us?</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-6">We provide the best solutions for your business</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="text-teal-600 mr-3 flex-shrink-0 font-bold text-xl">&#10004;</span>
+                            <p class="text-gray-700">Innovative and creative design solutions.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-teal-600 mr-3 flex-shrink-0 font-bold text-xl">&#10004;</span>
+                            <p class="text-gray-700">Data-driven marketing strategies for growth.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-teal-600 mr-3 flex-shrink-0 font-bold text-xl">&#10004;</span>
+                            <p class="text-gray-700">Expert consultation to steer your vision.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 md:mt-0">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="About Us" class="rounded-lg shadow-xl w-full h-auto object-cover" onerror="this.src='https://placehold.co/600x400/a5b4fc/ffffff?text=Our+Team'">
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Our Projects</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=450&h=350&q=80" alt="Project 1" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/450x350/e0e0e0/333?text=Project+1'">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-teal-600 text-sm font-semibold">Consultation</span>
+                            <p class="text-gray-500 text-sm mt-2 mb-1">Project from Location</p>
+                            <h3 class="text-xl font-bold text-gray-800 my-1">Project Name One</h3>
+                            <p class="text-gray-600 text-sm flex-grow mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                            <a href="#" class="mt-auto text-center w-full bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-300">
+                                READ MORE
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=450&h=350&q=80" alt="Project 2" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/450x350/e0e0e0/333?text=Project+2'">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-teal-600 text-sm font-semibold">Design</span>
+                            <p class="text-gray-500 text-sm mt-2 mb-1">Project Name Location</p>
+                            <h3 class="text-xl font-bold text-gray-800 my-1">Project Name Two</h3>
+                            <p class="text-gray-600 text-sm flex-grow mb-4">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                            <a href="#" class="mt-auto text-center w-full bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-300">
+                                READ MORE
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=450&h=350&q=80" alt="Project 3" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/450x350/e0e0e0/333?text=Project+3'">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-teal-600 text-sm font-semibold">Marketing & Design</span>
+                            <p class="text-gray-500 text-sm mt-2 mb-1">Project Home Location</p>
+                            <h3 class="text-xl font-bold text-gray-800 my-1">Project Name Three</h3>
+                            <p class="text-gray-600 text-sm flex-grow mb-4">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <a href="#" class="mt-auto text-center w-full bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-300">
+                                READ MORE
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=450&h=350&q=80" alt="Project 4" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/450x350/e0e0e0/333?text=Project+4'">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-teal-600 text-sm font-semibold">Consultation & Marketing</span>
+                            <p class="text-gray-500 text-sm mt-2 mb-1">Project Location</p>
+                            <h3 class="text-xl font-bold text-gray-800 my-1">Project Name Four</h3>
+                            <p class="text-gray-600 text-sm flex-grow mb-4">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <a href="#" class="mt-auto text-center w-full bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-300">
+                                READ MORE
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=450&h=350&q=80" alt="Project 5" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/450x350/e0e0e0/333?text=Project+5'">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <span class="text-teal-600 text-sm font-semibold">Consultation</span>
+                            <p class="text-gray-500 text-sm mt-2 mb-1">New Project Location</p>
+                            <h3 class="text-xl font-bold text-gray-800 my-1">Project Name Five</h3>
+                            <p class="text-gray-600 text-sm flex-grow mb-4">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <a href="#" class="mt-auto text-center w-full bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-300">
+                    <div class="text-center text-sm md:text-right">
+                        &copy; 2025 Your Company Name. All Rights Reserved.
+                        <a href="admin.html" class="block text-xs text-gray-600 hover:text-gray-400 mt-1">Admin Panel</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="clients" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Happy Clients</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+                        <img src="https://source.unsplash.com/100x100/?portrait,man,professional" alt="Rowhan Smith" class="w-20 h-20 rounded-full mb-4 border-2 border-white shadow-lg object-cover" onerror="this.src='https://placehold.co/100x100/e0e0e0/333?text=Avatar'">
+                        <p class="text-gray-600 text-sm italic flex-grow mb-4">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                        <h4 class="text-teal-700 font-bold">Rowhan Smith</h4>
+                        <span class="text-gray-500 text-sm">CEO, Firehouse</span>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+                        <img src="https://source.unsplash.com/100x100/?portrait,woman,designer" alt="Shipra Kayak" class="w-20 h-20 rounded-full mb-4 border-2 border-white shadow-lg object-cover" onerror="this.src='https://placehold.co/100x100/e0e0e0/333?text=Avatar'">
+                        <p class="text-gray-600 text-sm italic flex-grow mb-4">"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+                        <h4 class="text-teal-700 font-bold">Shipra Kayak</h4>
+                        <span class="text-gray-500 text-sm">Acme Designer</span>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+                        <img src="https://source.unsplash.com/100x100/?portrait,man,ceo" alt="John Lepore" class="w-20 h-20 rounded-full mb-4 border-2 border-white shadow-lg object-cover" onerror="this.src='https://placehold.co/100x100/e0e0e0/333?text=Avatar'">
+                        <p class="text-gray-600 text-sm italic flex-grow mb-4">"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</p>
+                        <h4 class="text-teal-700 font-bold">John Lepore</h4>
+                        <span class="text-gray-500 text-sm">CEO, Fission</span>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+                        <img src="https://source.unsplash.com/100x100/?portrait,woman,marketing" alt="Marry Freeman" class="w-20 h-20 rounded-full mb-4 border-2 border-white shadow-lg object-cover" onerror="this.src='https://placehold.co/100x100/e0e0e0/333?text=Avatar'">
+                        <p class="text-gray-600 text-sm italic flex-grow mb-4">"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                        <h4 class="text-teal-700 font-bold">Marry Freeman</h4>
+                        <span class="text-gray-500 text-sm">Marketing Manager at Mobil</span>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+                        <img src="https://source.unsplash.com/100x100/?portrait,woman,sales" alt="Lucy" class="w-20 h-20 rounded-full mb-4 border-2 border-white shadow-lg object-cover" onerror="this.src='https://placehold.co/100x100/e0e0e0/333?text=Avatar'">
+                        <p class="text-gray-600 text-sm italic flex-grow mb-4">"Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores."</p>
+                        <h4 class="text-teal-700 font-bold">Lucy</h4>
+                        <span class="text-gray-500 text-sm">Sales Head at Albus</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="form-card p-8 md:p-12 rounded-lg shadow-2xl">
+                        <h2 class="text-3xl font-bold text-white text-center mb-8">Get a Free Consultation</h2>
+                        <form action="#" method="POST" class="space-y-6">
+                            <div>
+                                <label for="full-name" class="sr-only">Full Name</label>
+                                <input type="text" name="full-name" id="full-name" placeholder="Full Name" required class="w-full px-4 py-3 rounded-lg border-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div>
+                                <label for="email" class="sr-only">Enter Email Address</label>
+                                <input type="email" name="email" id="email" placeholder="Enter Email Address" required class="w-full px-4 py-3 rounded-lg border-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div>
+                                <label for="mobile" class="sr-only">Mobile Number</label>
+                                <input type="tel" name="mobile" id="mobile" placeholder="Mobile Number" required class="w-full px-4 py-3 rounded-lg border-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <div>
+                                <label for="city" class="sr-only">Area, City</label>
+                                <input type="text" name="city" id="city" placeholder="Area, City" required class="w-full px-4 py-3 rounded-lg border-none focus:ring-2 focus:ring-amber-500">
+                            </div>
+                            <button type="submit" class="w-full bg-amber-500 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-amber-600 transition duration-300 shadow-md">
+                                Get Quick Quote
+                            </button>
+                        </form>
+                    </div>
+                    <div class="text-gray-800">
+                        <h3 class="text-3xl font-bold mb-4">Ready to grow your business?</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Fill out the form and our team will get back to you within 24 hours to discuss your project and provide a no-obligation quote. Let's build something amazing together.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-teal-700 text-white">
+            <div class="container mx-auto px-6 py-12">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-2">Learn more about our listing process...</h3>
+                        <p class="text-teal-100">...as well as our additional staging and design work.</p>
+                    </div>
+                    <div class="md:w-1D/2 flex justify-end">
+                        <a href="#" class="bg-white text-teal-700 font-bold py-3 px-8 rounded-lg shadow-md hover:bg-gray-100 transition duration-300">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-gray-900 text-gray-400">
+            <div class="bg-teal-700 text-teal-100">
+                <div class="container mx-auto px-6 py-8">
+                    <div class="flex flex-col lg:flex-row justify-between items-center gap-8">
+                        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                            <a href="#" class="hover:text-white">Home</a>
+                            <a href="#about" class="hover:text-white">Services</a>
+                            <a href="#projects" class="hover:text-white">Projects</a>
+                            <a href="#clients" class="hover:text-white">Testimonials</a>
+                            <a href="#contact" class="hover:text-white">Contact</a>
+                        </nav>
+                        
+                        <div class="w-full lg:w-auto">
+                            <form action="#" method="POST" class="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto">
+                                <label for="footer-email" class="font-semibold text-white text-center sm:text-left pt-2">Subscribe Us</label>
+                                <input type="email" name="footer-email" id="footer-email" placeholder="Enter Email Address" required class="flex-grow px-4 py-2 rounded-lg border-none text-gray-800 focus:ring-2 focus:ring-teal-500">
+                                <button type="submit" class="bg-teal-900 text-white font-semibold px-5 py-2 rounded-lg hover:bg-black transition duration-300">
+                                    Subscribe
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-900 py-8">
+                <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="text-center md:text-left">
+                        <a href="#" class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="font-bold text-2xl text-white">Logo</span>
+                        </a>
+                    </div>
+                     
+                    <div class="flex justify-center md:justify-end space-x-4">
+                        <a href="#" class="social-icon bg-gray-700 text-white rounded-full hover:bg-teal-600 text-lg">
+                            f
+                        </a>
+                        <a href="#" class="social-icon bg-gray-700 text-white rounded-full hover:bg-teal-400 text-lg">
+                            t
+                        </a>
+                        <a href="#" class="social-icon bg-gray-700 text-white rounded-full hover:bg-teal-700 social-icon-in">
+                            in
+                        </a>
+                        <a href="#" class="social-icon bg-gray-700 text-white rounded-full hover:bg-amber-500 text-lg">
+                            i
+                        </a>
+                    </div>
+
+                    <div classs="text-center text-sm md:text-right">
+                        &copy; 2025 Your Company Name. All Rights Reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>
