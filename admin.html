@@ -7,7 +7,7 @@
     <!-- Application Structure Plan: This is a single-page admin panel. A sidebar navigation is used to toggle the visibility of different management sections (Projects, Clients, etc.) in the main content area. This SPA approach is efficient and user-friendly, allowing the admin to perform all tasks without page reloads. The structure directly maps to the requirements in the source PDF. -->
     <!-- Visualization & Content Choices: Data is managed via forms (for adding) and tables (for viewing). Report Info (Project Management) -> Goal (Add/View Projects) -> Viz/Method (HTML Form, HTML Table) -> Interaction (Form submit, JS toggles view) -> Justification (Standard CRUD interface). Other sections (Clients, Contacts, Subscribers) follow the same pattern, using the most common and clear UI for data management. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <title>Admin Panel - FLIPR Task</title>
+    <title>Apex Solutions - Admin Panel</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -20,7 +20,7 @@
     <div class="flex min-h-screen">
         <!-- Sidebar -->
         <aside class="w-64 bg-gray-800 text-white p-6 flex flex-col">
-            <h1 class="text-2xl font-bold mb-8 text-white">Admin Panel</h1>
+            <h1 class="text-2xl font-bold mb-8 text-white">Apex Admin</h1>
             <nav class="flex flex-col space-y-2">
                 <a href="#projects" class="nav-link bg-gray-700 text-white py-2 px-4 rounded-lg flex items-center" data-target="projects">
                     <span class="mr-3">&#128188;</span> Projects
@@ -168,7 +168,7 @@
                             <!-- Mock Data Row -->
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Jane Doe</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">jane.doe@example.com</td>
+                                <td class="px-6 py-4 whitespace-nowHwrap text-sm text-gray-500">jane.doe@example.com</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+1234567890</td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">New York, NY</td>
                             </tr>
@@ -193,7 +193,7 @@
                             <!-- Mock Data Row -->
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">test@example.com</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2025-11-18</td>
+                                <td classs="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2025-11-18</td>
                             </tr>
                             <!-- More rows would be added here by JS -->
                         </tbody>
